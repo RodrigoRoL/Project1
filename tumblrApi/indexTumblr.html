@@ -10,15 +10,15 @@
   <body>
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-          <a class="navbar-item is-size-1-desktop has-text-black is-italic">TuneSurf</a>
+          <a class="navbar-item">TuneSurf</a>
         </div>
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="buttons">
-                <a class="button has-background-grey-dark has-text-white">
+                <a class="button is-primary">
                     <strong>Discover</strong>
                 </a>
-                <a class="button has-background-grey-dark has-text-white">Main Menu</a>
+                <a class="button is-light">Main Menu</a>
               </div>
             </div>
           </div>
@@ -27,40 +27,43 @@
 
       <div class="columns">
         <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Artist</p>
+            <p class="box has-background-primary">Artist</p>
         </div>
         <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Listeners</p>
+            <p class="box has-background-primary">Listeners</p>
         </div>
         <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Genre</p>
+            <p class="box has-background-primary">Genre</p>
         </div>
         <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Location</p>
+            <p class="box has-background-primary">Location</p>
         </div>
         </div>
 
         <div class="tile is-ancestor">
             <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title has-background-grey-dark has-text-white">About</p>
+              <article class="tile is-child box">
+                <p class="title">About</p>
                 <p class="subtitle">Info y spotify</p>
               </article>
             </div>
             <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title has-background-grey-dark has-text-white" id="media-1" >Media</p>
-                <span id="media-text"></span>
+              <article class="tile is-child box">
+                <p class="title">Media</p>
+                <p class="subtitle">Tumblr o contenido relacionado</p>
+                <div id="media-1"></div>
+                <div class="media-2"></div>
+                <div class="media-3"></div>
               </article>
             </div>
             <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title is-rounded has-background-grey-dark has-text-white">Events</p>
+              <article class="tile is-child box">
+                <p class="title">Events</p>
                 <p class="subtitle">Ticketmaster</p>
               </article>
             </div>
           </div>
 
-          <script src="./tumblrApi/jsTumblr.js"></script>
+          <script src="./jsTumblr.js"></script>
     </body>
     </html>
