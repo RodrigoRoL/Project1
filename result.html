@@ -1,66 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-  </head>
-  
-  <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item is-size-1-desktop has-text-black is-italic">TuneSurf</a>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+
+<body>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item is-size-1-desktop has-text-black is-italic">TuneSurf</a>
+    </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button has-background-grey-dark has-text-white">
+            <strong>Discover</strong>
+          </a>
+          <a class="button has-background-grey-dark has-text-white">Main Menu</a>
         </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button has-background-grey-dark has-text-white">
-                    <strong>Discover</strong>
-                </a>
-                <a class="button has-background-grey-dark has-text-white">Main Menu</a>
-              </div>
+      </div>
+    </div>
+    </div>
+  </nav>
+
+  <div class="columns">
+    <div class="column">
+      <p class="box has-background-grey-dark has-text-white" id="artist"></p> 
+    </div>
+    <div class="column">
+      <p class="box has-background-grey-dark has-text-white" id="followers"></p>
+    </div>
+    <div class="column">
+      <p class="box has-background-grey-dark has-text-white" id="genre"></p>
+    </div>
+  </div>
+
+  <div class="tile is-ancestor">
+    <div class="tile is-parent">
+      <article class="tile is-child box has-background-grey-light">
+        <p class="title has-background-grey-dark has-text-white">Spotify</p>
+        <div class="subtitle" class="columns">Top Albums
+          <div class="columns">
+            <div class="column" id="top-albums">
+              
             </div>
           </div>
         </div>
-      </nav>
-
-      <div class="columns">
-        <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Artist</p>
-        </div>
-        <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Listeners</p>
-        </div>
-        <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Genre</p>
-        </div>
-        <div class="column">
-            <p class="box has-background-grey-dark has-text-white">Location</p>
-        </div>
-        </div>
-
-        <div class="tile is-ancestor">
-            <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title has-background-grey-dark has-text-white">About</p>
-                <p class="subtitle">Info y spotify</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title has-background-grey-dark has-text-white">Media</p>
-                <p class="subtitle">Tumblr o contenido relacionado</p>
-              </article>
-            </div>
-            <div class="tile is-parent">
-              <article class="tile is-child box has-background-grey-light">
-                <p class="title is-rounded has-background-grey-dark has-text-white">Events</p>
-                <p class="subtitle">Ticketmaster</p>
-              </article>
+        <div class="subtitle" class="columns">Related Artists
+          <div class="columns">
+            <div class="column" id="related-artists">
+              
             </div>
           </div>
+        </div>
+      </article>
+    </div>
 
-       
-    </body>
-    </html>
+    <div class="tile is-parent">
+      <article class="tile is-child box has-background-grey-light">
+        <p class="title has-background-grey-dark has-text-white">Media</p>
+        <p class="subtitle">Tumblr o contenido relacionado</p>
+      </article>
+    </div>
+    <div class="tile is-parent">
+      <article class="tile is-child box has-background-grey-light">
+        <p class="title is-rounded has-background-grey-dark has-text-white">Events</p>
+        <p class="subtitle">Ticketmaster</p>
+      </article>
+    </div>
+  </div>
+
+  <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+  <script src="./assets/js/script.js"></script>
+
+</body>
+</html>
