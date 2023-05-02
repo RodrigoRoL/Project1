@@ -165,3 +165,38 @@ getToken().then(function (token) {
 
 
 
+
+//Ticketmaster
+const ticketid = "io5nerXdiuuhzQi2TB1bN1Dh0N9Vtllx";
+
+const event1El = document.getElementById("event1");
+const event2El = document.getElementById("event2");
+const event3El = document.getElementById("event3");
+
+  //Shows by Ticketmaster
+function Show() {
+  const showlocation = `https://app.ticketmaster.com/discovery/v2/events?apikey=${ticketid}&keyword=${artist}&locale=*&countryCode=MX`
+  fetch(showlocation, {
+    method: 'GET',
+  })
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error('Request failed');
+      }
+    })
+    .then(data => {
+        console.log("event1", event1El);
+        event1El.textContent = data._embedded.events[0].name;
+        console.log("embedded", data._embedded.events[0].name);
+        event2El.textContent = data._embedded.events[1].name;
+        event3El.textContent = data._embedded.events[2].name;
+        console.log("data", data)
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+Show();
