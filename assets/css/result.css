@@ -9,7 +9,7 @@ body {
 }
 
 .navbar {
-    background-color: #4062bb;
+    background-color: rgba(0,0,0,.3);
     margin-bottom: 10px;
     border-radius: 5px;
 }
@@ -21,6 +21,11 @@ body {
 .box, .title {
     background-color: #023047;
     border-radius: 5px;
+}
+
+.image img {
+    width: 150px;
+    height: 150px;
 }
 
   .media-item-1 {
