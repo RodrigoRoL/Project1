@@ -2,8 +2,6 @@ const apiKey = '5fK7ZriTD9B3gmtu7wd0JF2PQy7iY6WQZhw74u3Q9Slb8Dtjln';
 const limit = 20;
 const tumblrUrl = `https://api.tumblr.com/v2/tagged?api_key=${apiKey}&tag=${artist}&limit=${limit}&filter=photo`;
 
-console.log("Artist: ", (artist));
-
 function getMedia(){
   fetch(tumblrUrl)
     .then(response => response.json())
