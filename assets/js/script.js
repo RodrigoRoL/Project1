@@ -196,13 +196,15 @@ function getMedia(){
           const container = document.querySelector('#media-1');
           const textContainer = document.querySelector('#media-text');
           for (let i = 0; i < imageMedia.length; i++) {
-            container.innerHTML += `<img src="${imageMedia[i].photos[0].original_size.url}" alt="random media" class="media-item-${i+1}" >`;
-          }
-        
+            if (imageMedia[i].type === 'video') {
+                container.innerHTML += `<img src="${imageMedia[i].thumbnail_url}" alt="random media" class="media-item-${i+1}" >`;
+              } else {    
+                container.innerHTML += `<img src="${imageMedia[i].photos[0].original_size.url}" alt="random media" class="media-item-${i+1}" >`;
+              }
+             }
           for (let i = 0; i < texts.length; i++) {
             textContainer.innerHTML += `<p> ${texts[i].summary} </p>`;
-          }
-         })
+          }})
          };
   
      
@@ -227,7 +229,9 @@ function Show() {
         throw new Error('Request failed');
       }
     })
+    
     .then(data => {
+        console.log(data);
         console.log("event1", event1El);
         event1El.textContent = data._embedded.events[0].name;
         console.log("embedded", data._embedded.events[0].name);
