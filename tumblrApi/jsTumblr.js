@@ -1,6 +1,6 @@
 const apiKey = '5fK7ZriTD9B3gmtu7wd0JF2PQy7iY6WQZhw74u3Q9Slb8Dtjln';
-const searchedArtist = "Florence welch";
-const limit = 30;
+let artist = JSON.parse(localStorage.getItem("userInput"));
+const limit = 20;
 const tumblrUrl = `https://api.tumblr.com/v2/tagged?api_key=${apiKey}&tag=${searchedArtist}&limit=${limit}&filter=photo`;
 
 console.log("Artist: ", (searchedArtist));
