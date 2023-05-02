@@ -95,7 +95,7 @@ function artistAlbums(artistId, accessToken) {
         const spotify = data.items[i].external_urls.spotify;
 
         let newEl = document.createElement("article");
-        newEl.innerHTML += `<figure class="media-left"><p class="image is-64x64"><img src=${image}></p></figure><div class="media-content"><div class="content"><p><strong>${albumName}</strong><small> ${year}</small><br><a href=${spotify} >Listen now on Spotify</a></p></div></div>`;
+        newEl.innerHTML += `<figure class="media-left"><p class="image is-64x64"><img src=${image}></p></figure><div class="media-content"><div class="content"><p><strong class="has-text-white">${albumName}</strong><small class="has-text-white"> ${year}</small><br><a href=${spotify} >Listen now on Spotify</a></p></div></div>`;
         newEl.className = "media";
         document.getElementById("top-albums").append(newEl);
       }
@@ -127,7 +127,7 @@ function relatedArtists(artistId, accessToken) {
         const relatedImage = data.artists[i].images[2].url;
 
         let newEl = document.createElement("article");
-        newEl.innerHTML += `<figure class="media-left"><p class="image is-64x64"><img class="is-rounded" src=${relatedImage}></p></figure><div class="media-content"><div class="content"><p><strong>${relatedArtist}</strong><small> ${relatedFollowers} Followers </small><br><a href=${relatedSpotify}>Explore</a></p></div></div>`;
+        newEl.innerHTML += `<figure class="media-left"><p class="image is-64x64"><img class="is-rounded" src=${relatedImage}></p></figure><div class="media-content"><div class="content"><p><strong class="has-text-white">${relatedArtist}</strong><small class="has-text-white"> ${relatedFollowers} Followers </small><br><a href=${relatedSpotify}>Explore</a></p></div></div>`;
         newEl.className = "media";
         document.getElementById("related-artists").append(newEl);
       }
