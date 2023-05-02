@@ -1,53 +1,44 @@
 let searchButton = document.querySelector("#search");
+let divEl = document.querySelector(".previous-body");
 
 // Start
 searchButton.addEventListener("click", function (event) {
     userInput = document.querySelector("#search-input").value;
     localStorage.setItem("userInput", JSON.stringify(userInput));
+    localFunc(userInput);
     location.href = "result.html"
 });
 
-function localFunc() {
-    var artistButton = JSON.parse(localStorage.getItem("userInput"));
-    console.log("artist button", artistButton)
-    
-    if (!artistButton) {
-        localStorage.setItem("localArtist", JSON.stringify([artist]));
+function localFunc(userInput) {
+    let localArtist = JSON.parse(localStorage.getItem("searches"));
+    if (!localArtist) {
+        localStorage.setItem("searches", JSON.stringify([userInput]))
     } else {
-        if (cityButton.includes(artist)) {
+        if (localArtist.includes(userInput)) {
             return;
         }
-        cityButton.unshift(artist);
-        localStorage.setItem("city", JSON.stringify(cityButton));
-        var citiesBtn = document.createElement("button");
-        citiesBtn.setAttribute("class", "btn btn-outline-primary w-100 search-history")
-        citiesBtn.textContent = city
-
-        searchCard.appendChild(citiesBtn);
-        citiesBtn.addEventListener("click", function (event) {
-            city = event.target.textContent
-            weather();
-        })
+        localArtist.push(userInput);
+        localStorage.setItem("searches", JSON.stringify(localArtist));
     }
-
 }
 
 function displayBtn() {
-    var cityButton = JSON.parse(localStorage.getItem("city"));
-    if (cityButton) {
-        for (var i = 0; i < cityButton.length; i++) {
-            var citiesBtn = document.createElement("button");
-            citiesBtn.setAttribute("class", "btn btn-outline-primary w-100 search-history")
-            citiesBtn.textContent = cityButton[i]
+    let localArtist = JSON.parse(localStorage.getItem("searches"));
+    if (localArtist) {
+        for (var i = 0; i < localArtist.length; i++) {
+            var artistBtn = document.createElement("button");
+            artistBtn.setAttribute("class", "btn")
+            artistBtn.textContent = localArtist[i]
 
-            searchCard.appendChild(citiesBtn);
-            citiesBtn.addEventListener("click", function (event) {
-                city = event.target.textContent
-                weather();
+            divEl.append(artistBtn);
+            artistBtn.addEventListener("click", function (event) {
+                userInput = event.target.textContent
+                localStorage.setItem("userInput", JSON.stringify(userInput));
+                location.href = "result.html"
             })
+
         }
     }
-
 }
 
 displayBtn();

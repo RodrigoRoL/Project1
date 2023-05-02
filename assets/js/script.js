@@ -3,14 +3,19 @@ let nameEl = document.querySelector("#artist");
 let followersEl = document.querySelector("#followers");
 let genreEl = document.querySelector("#genre");
 
-//Spotify Auth
+//Return to menu button
+let menuButton = document.querySelector("#menu");
+menuButton.addEventListener("click", function (event) {
+    location.href = "index.html"
+});
+
+// Spotify Auth
 const clientId = '083ca6c5e35e4936a1e52a1611cf4516';
 const clientSecret = 'e97063521a0348f085cf54408a747090';
 const base64ClientIdSecret = btoa(`${clientId}:${clientSecret}`);
 const tokenUrl = 'https://accounts.spotify.com/api/token';
 
-
-function getToken() { //retorna un fetch ejecutado 
+function getToken() {
   return fetch(tokenUrl, {
     method: 'POST',
     headers: {
@@ -37,7 +42,7 @@ function getToken() { //retorna un fetch ejecutado
 function artistSearch(accessToken) {
   const apiUrl = `https://api.spotify.com/v1/search?q=${artist}&type=artist`;
 
-  fetch(apiUrl, {
+  return fetch(apiUrl, {
     method: 'GET',
     headers: { 'Authorization': `Bearer ${accessToken}` }
   })
@@ -60,14 +65,14 @@ function artistSearch(accessToken) {
       genreEl.textContent = genres;
 
       localStorage.setItem("id", JSON.stringify(id));
+      return id; // we need to return the id for further calls
     })
     .catch(error => {
       console.error('Error:', error);
     });
 }
 
-function artistAlbums(accessToken) {
-  let artistId = JSON.parse(localStorage.getItem("id"));
+function artistAlbums(artistId, accessToken) {
   const albumURL = `https://api.spotify.com/v1/artists/${artistId}/albums`;
 
   fetch(albumURL, {
@@ -82,7 +87,6 @@ function artistAlbums(accessToken) {
       }
     })
     .then(data => {
-
       for (var i = 0; i <= 3; i++) {
         const albumName = data.items[i].name;
         const date = data.items[i].release_date;
@@ -95,16 +99,13 @@ function artistAlbums(accessToken) {
         newEl.className = "media";
         document.getElementById("top-albums").append(newEl);
       }
-
     })
     .catch(error => {
       console.error('Error:', error);
     });
-
 }
 
-function relatedArtists(accessToken) {
-  let artistId = JSON.parse(localStorage.getItem("id"));
+function relatedArtists(artistId, accessToken) {
   const relatedURL = `https://api.spotify.com/v1/artists/${artistId}/related-artists`;
 
   fetch(relatedURL, {
@@ -119,7 +120,6 @@ function relatedArtists(accessToken) {
       }
     })
     .then(data => {
-
       for (var i = 0; i <= 2; i++) {
         const relatedArtist = data.artists[i].name;
         const relatedFollowers = data.artists[i].followers.total;
@@ -131,26 +131,37 @@ function relatedArtists(accessToken) {
         newEl.className = "media";
         document.getElementById("related-artists").append(newEl);
       }
-
     })
     .catch(error => {
       console.error('Error:', error);
     });
-
 }
 
-var accessToken = getToken().then(function (token) { // se hace un .then porque fetch nos da una promesa
-  artistSearch(token);
-  console.log("func",artistSearch(token) )
-  artistAlbums(token);
-  relatedArtists(token);
-})
+getToken().then(function (token) {
+  // First, perform the artist search
+  // the use of return statements in the .then() functions is essential for chaining Promises and passing data between them
+  return artistSearch(token).then(function (artistId) {
+    return { artistId, token };
+    // By returning { artistId, token }, we can chain another .then() function after this one, 
+    // which will receive this object as an argument. This allows us to pass both the artistId 
+    // and the token to the subsequent steps in the Promise chain, ensuring we have the necessary 
+    // information to call the artistAlbums() and relatedArtists() functions.
+  });
+}).then(function ({ artistId, token }) {
+  // Check if we have a valid artistId before proceeding
+  if (artistId) {
+    // Retrieve the artistId from localStorage here instead of getting it in each function
+    let storedArtistId = JSON.parse(localStorage.getItem("id"));
 
-
-
-//Revisar concepto asincronia 
-//Se esta controlando el flujo, get token devuelve promesa, .then para acceder - nos aseugramos que entramos a la resolución de esa promesa. Al pasar esa funcion en .then me aseguro que el token lo puedo acceder hasta tener la respuesta, - nos aseguramos de que el token existe. 
-
+    // Pass both storedArtistId and token to the artistAlbums and relatedArtists functions
+    artistAlbums(storedArtistId, token);
+    relatedArtists(storedArtistId, token);
+  } else {
+    console.error('Error: Unable to fetch artist information');
+  }
+}).catch(function (error) {
+  console.error('Error:', error);
+});
 
 
 
