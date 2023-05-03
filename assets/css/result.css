@@ -27,7 +27,10 @@ body {
   height: 250px;
   width: 250px;
 } */
-
+.logo-1 {
+  height: 200px;
+  width: 200px;
+}
   .media-item-1 {
     flex-basis: 100%;
     width: 100%;
