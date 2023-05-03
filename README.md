@@ -13,8 +13,8 @@ TuneSurf is a very easy app to use, however we understand not everything comes n
 1. Go to https://rodrigorol.github.io/TuneSurf/index.html, this is TuneSurf main page.
 2. You will see a search bar that says "Type Here!", here you will search your favorite artist/band.
 3. If you have used our app before, in the bottom of the main page you will see a section called "Your previous searches!", in this section you will find easy access to your previous searches, clicking on the artist you want to search again, without needing to type it again.
-4.
-5.
+4. Click the "Go!" and you will be redirected to a page where you will see the content of your artist, song and albums and events near to you (currently supporting only Mexico).
+5. Enjoy your favorite artists! 
 
 Provide instructions and examples for use. Include screenshots as needed.
 
@@ -24,15 +24,16 @@ To add a screenshot, create an `assets/images` folder in your repository and upl
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+Collaborators:
+Carlos Flores: https://github.com/carloscastilloflores
+Maria Fernanda Marroquin: https://github.com/MariaFernandaMarroquin
+Rodrigo Roldan: https://github.com/RodrigoRoL
+Marco Monter (TA): https://github.com/montermarco
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+APIs used:
+Spotify
+Ticketmaster
+Tumblr
 
-If you followed tutorials, include links to those here as well.
 
-## License
-
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
----
 
