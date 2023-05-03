@@ -30,7 +30,7 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
-img {
+.image img {
   height: 250px;
   width: 250px;
 }
