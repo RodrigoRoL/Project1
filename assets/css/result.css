@@ -23,10 +23,10 @@ body {
     border-radius: 5px;
 }
 
-.image img {
-    width: 150px;
-    height: 150px;
-}
+/* .image img {
+  height: 250px;
+  width: 250px;
+} */
 
   .media-item-1 {
     flex-basis: 100%;
