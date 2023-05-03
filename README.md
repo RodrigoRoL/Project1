@@ -16,11 +16,9 @@ TuneSurf is a very easy app to use, however we understand not everything comes n
 4. Click the "Go!" and you will be redirected to a page where you will see the content of your artist, song and albums and events near to you (currently supporting only Mexico).
 5. Enjoy your favorite artists! 
 
-Provide instructions and examples for use. Include screenshots as needed.
+<img width="1425" alt="Screenshot 2023-05-02 at 9 49 27 PM" src="https://user-images.githubusercontent.com/126302497/235829457-b2cac530-9b12-4ac8-bd5d-f6a881615b0c.png">
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+<img width="1439" alt="Screenshot 2023-05-02 at 9 50 12 PM" src="https://user-images.githubusercontent.com/126302497/235829521-ebb6622d-a404-4a68-aed3-c911d12e1aec.png">
 
 ## Credits
 
